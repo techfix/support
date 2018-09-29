@@ -13,7 +13,8 @@ class SupportProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // publish config
+        $this->publishes([__DIR__.'/../config/support.php' => config_path('support.php')]);
     }
 
     /**
@@ -23,6 +24,7 @@ class SupportProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // load config
+        $this->mergeConfigFrom(__DIR__.'/../config/support.php', 'support');
     }
 }
